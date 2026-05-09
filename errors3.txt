@@ -1,0 +1,21 @@
+(olmoearth) users_model@iZ1pp00ofwvuxcw0wxchchZ:/mnt/ht2-nas2/00-model/00-zhoujw/olmoearth/olmoearth$ python -<<'PY'
+import h5py
+p = "/mnt/ht2-nas2/00-model/00-jiangzf/coderepo/H5_DIR/h5py_data_w_missing_timesteps_zstd_3_128_x_4/planet_rgbnir/3996/sample_0.h5"
+with h5py.File(p, "r") as f:
+    print(list(f.keys()))
+    for k in f.keys():
+        print(k,f[k].shape if hasattr(f[k],"shape") else type(f[k]))
+PY
+['landsat', 'latlon', 'missing_timesteps_masks', 'openstreetmap_raster', 'planet_rgbnir', 'sentinel1', 'sentinel2_l2a', 'srtm', 'timestamps', 'worldcereal', 'worldcover', 'wri_canopy_height_map']
+landsat (128, 128, 12, 11)
+latlon (2,)
+missing_timesteps_masks <class 'h5py._hl.group.Group'>
+openstreetmap_raster (128, 128, 1, 30)
+planet_rgbnir (512, 512, 12, 3)
+sentinel1 (128, 128, 12, 2)
+sentinel2_l2a (128, 128, 12, 12)
+srtm (128, 128, 1, 1)
+timestamps (12, 3)
+worldcereal (128, 128, 1, 8)
+worldcover (128, 128, 1, 1)
+wri_canopy_height_map (128, 128, 1, 1)
