@@ -1,0 +1,23 @@
+[2026-05-09 17:21:47] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 15 of 16 with batch size 32
+[2026-05-09 17:21:49] INFO     [olmo_core.train.callbacks.console_logger:67, rank=0] [step=10/2100,epoch=2,eta=2d7h50m]
+    optim/total grad norm=1.340
+    optim/LR (group 0)=1.25E-07
+    throughput/device/data loading (s)=0.0629
+    throughput/total tokens target encoder-since-restart=10,368,000
+    throughput/total tokens encoded-since-restart=5,184,000
+    throughput/total tokens decoded-since-restart=5,184,000
+    throughput/device/TPS Encoded=274,332
+    throughput/device/TPS Target Encoder=548,664
+    throughput/device/TPS Target Encoder (estimated avg)=11,979
+    throughput/device/TPS Encoded (estimated avg)=5,989
+    throughput/device/TPS Decoded=274,332
+    throughput/device/TPS Decoded (estimated avg)=5,989
+    throughput/device/data loading (%)=0.3330
+    throughput/device/BPS=0.0529
+    throughput/device/BPS (estimated avg)=0.0104
+    throughput/device/model duration (s)=18.83
+    throughput/device/model duration (%)=0.9966
+    system/GPU active mem (GiB)=0.0
+    system/GPU active mem (%)=0.0
+    system/GPU reserved mem (GiB)=0.0
+    system/GPU reserved mem (%)=0.0
