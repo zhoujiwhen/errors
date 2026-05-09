@@ -1,0 +1,21 @@
+(olmoearth) users_model@iZ1pp00ofwvuxcw0wxchchZ:/mnt/ht2-nas2/00-model/00-zhoujw/olmoearth/olmoearth$ python -<<'PY'
+> import h5py
+p = "/mnt/ht2-nas2/00-model/00-jiangzf/coderepo/H5_DIR/h5py_data_w_missing_timesteps_zstd_3_128_x_4/planet_rgbnir/3996/sample_0.h5"
+with h5py.File(p, "r") as f:
+    print(list(f.keys()))
+    for k in f.keys():
+        print(k,f[k].shape if hasattr(f[k],"shapge") else type(f[k]))
+PY
+['landsat', 'latlon', 'missing_timesteps_masks', 'openstreetmap_raster', 'planet_rgbnir', 'sentinel1', 'sentinel2_l2a', 'srtm', 'timestamps', 'worldcereal', 'worldcover', 'wri_canopy_height_map']
+landsat <class 'h5py._hl.dataset.Dataset'>
+latlon <class 'h5py._hl.dataset.Dataset'>
+missing_timesteps_masks <class 'h5py._hl.group.Group'>
+openstreetmap_raster <class 'h5py._hl.dataset.Dataset'>
+planet_rgbnir <class 'h5py._hl.dataset.Dataset'>
+sentinel1 <class 'h5py._hl.dataset.Dataset'>
+sentinel2_l2a <class 'h5py._hl.dataset.Dataset'>
+srtm <class 'h5py._hl.dataset.Dataset'>
+timestamps <class 'h5py._hl.dataset.Dataset'>
+worldcereal <class 'h5py._hl.dataset.Dataset'>
+worldcover <class 'h5py._hl.dataset.Dataset'>
+wri_canopy_height_map <class 'h5py._hl.dataset.Dataset'>
