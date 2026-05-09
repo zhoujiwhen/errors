@@ -1,0 +1,180 @@
+[2026-05-09 17:01:57] INFO     [olmoearth_pretrain.data.dataloader:447, rank=0] num_masked_views: 2
+[2026-05-09 17:01:58] INFO     [olmo_core.train.trainer:920, rank=0] Checkpoint for step 0 saved successfully
+[2026-05-09 17:02:02] INFO     [olmo_core.train.trainer:1305, rank=0] Starting forward/backward dry-run batch...
+[2026-05-09 17:02:02] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 0 of 16 with batch size 32
+[2026-05-09 17:02:07] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 1 of 16 with batch size 32
+[2026-05-09 17:02:11] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 2 of 16 with batch size 32
+[2026-05-09 17:02:15] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 3 of 16 with batch size 32
+[2026-05-09 17:02:18] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 4 of 16 with batch size 32
+[2026-05-09 17:02:22] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 5 of 16 with batch size 32
+[2026-05-09 17:02:26] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 6 of 16 with batch size 32
+[2026-05-09 17:02:30] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 7 of 16 with batch size 32
+[2026-05-09 17:02:34] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 8 of 16 with batch size 32
+[2026-05-09 17:02:38] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 9 of 16 with batch size 32
+[2026-05-09 17:02:41] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 10 of 16 with batch size 32
+[2026-05-09 17:02:45] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 11 of 16 with batch size 32
+[2026-05-09 17:02:49] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 12 of 16 with batch size 32
+[2026-05-09 17:02:52] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 13 of 16 with batch size 32
+[2026-05-09 17:02:57] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 14 of 16 with batch size 32
+[2026-05-09 17:03:01] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 15 of 16 with batch size 32
+[2026-05-09 17:03:06] INFO     [olmo_core.train.trainer:1307, rank=0] Dry-run complete
+[2026-05-09 17:03:06] INFO     [olmoearth_pretrain.data.dataloader:235, rank=0] Global data order indices saved to:
+'local_output/checkpoints/anonymous/nano_dynamic_hypernet_official_9mod/dataset-4dde7fa0d24318c956bb8bcbd652b4aaba09342105a62f374acc9a8ce3f048f1/global_indices_epoch1_seed3622_size3584.npy'
+[2026-05-09 17:03:06] INFO     [olmo_core.train.trainer:1312, rank=0] Starting epoch 1...
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+ERROR:albumentations.check_version:Error fetching version info
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/albumentations/check_version.py", line 32, in fetch_version_info
+    data = response.read()
+           ^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 500, in read
+    s = self._safe_read(self.length)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 648, in _safe_read
+    data = self.fp.read(cursize)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+ERROR:albumentations.check_version:Error fetching version info
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/albumentations/check_version.py", line 32, in fetch_version_info
+    data = response.read()
+           ^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 500, in read
+    s = self._safe_read(self.length)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 648, in _safe_read
+    data = self.fp.read(cursize)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+ERROR:albumentations.check_version:Error fetching version info
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/albumentations/check_version.py", line 32, in fetch_version_info
+    data = response.read()
+           ^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 500, in read
+    s = self._safe_read(self.length)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 648, in _safe_read
+    data = self.fp.read(cursize)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+ERROR:albumentations.check_version:Error fetching version info
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/albumentations/check_version.py", line 32, in fetch_version_info
+    data = response.read()
+           ^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 500, in read
+    s = self._safe_read(self.length)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/http/client.py", line 648, in _safe_read
+    data = self.fp.read(cursize)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1251, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/ssl.py", line 1103, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/class_registry/entry_points.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import iter_entry_points
+INFO:albumentations.check_version:A new version of Albumentations is available: 2.0.8 (you have 1.4.10). Upgrade using: pip install --upgrade albumentations
+[2026-05-09 17:07:12] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 0 of 16 with batch size 32
+[2026-05-09 17:07:13] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 1 of 16 with batch size 32
+[2026-05-09 17:07:14] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 2 of 16 with batch size 32
+[2026-05-09 17:07:15] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 3 of 16 with batch size 32
+[2026-05-09 17:07:15] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 4 of 16 with batch size 32
+[2026-05-09 17:07:16] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 5 of 16 with batch size 32
+[2026-05-09 17:07:16] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 6 of 16 with batch size 32
+[2026-05-09 17:07:17] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 7 of 16 with batch size 32
+[2026-05-09 17:07:18] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 8 of 16 with batch size 32
+[2026-05-09 17:07:19] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 9 of 16 with batch size 32
+[2026-05-09 17:07:19] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 10 of 16 with batch size 32
+[2026-05-09 17:07:20] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 11 of 16 with batch size 32
+[2026-05-09 17:07:20] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 12 of 16 with batch size 32
+[2026-05-09 17:07:21] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 13 of 16 with batch size 32
+[2026-05-09 17:07:22] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 14 of 16 with batch size 32
+[2026-05-09 17:07:22] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 15 of 16 with batch size 32
+[2026-05-09 17:07:23] INFO     [olmo_core.train.callbacks.console_logger:67, rank=0] [step=1/2100,epoch=1]
+    optim/total grad norm=0.7070
+    optim/LR (group 0)=1.25E-08
+    throughput/device/data loading (s)=246.3
+    system/GPU active mem (GiB)=0.0
+    system/GPU active mem (%)=0.0
+    system/GPU reserved mem (GiB)=0.0
+    system/GPU reserved mem (%)=0.0
+[2026-05-09 17:07:32] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 0 of 16 with batch size 32
+[2026-05-09 17:07:44] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 1 of 16 with batch size 32
+[2026-05-09 17:07:52] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 2 of 16 with batch size 32
+[2026-05-09 17:07:57] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 3 of 16 with batch size 32
+[2026-05-09 17:08:03] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 4 of 16 with batch size 32
+[2026-05-09 17:08:09] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 5 of 16 with batch size 32
+[2026-05-09 17:08:15] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 6 of 16 with batch size 32
+[2026-05-09 17:08:21] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 7 of 16 with batch size 32
+[2026-05-09 17:08:27] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 8 of 16 with batch size 32
+[2026-05-09 17:08:33] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 9 of 16 with batch size 32
+[2026-05-09 17:08:38] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 10 of 16 with batch size 32
+[2026-05-09 17:08:44] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 11 of 16 with batch size 32
+[2026-05-09 17:08:50] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 12 of 16 with batch size 32
+[2026-05-09 17:08:56] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 13 of 16 with batch size 32
+[2026-05-09 17:09:02] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 14 of 16 with batch size 32
+[2026-05-09 17:09:08] INFO     [olmoearth_pretrain.train.train_module.contrastive_latentmim:225, rank=0] Training microbatch 15 of 16 with batch size 32
+[2026-05-09 17:09:14] INFO     [olmo_core.train.callbacks.console_logger:60, rank=0] [step=2/2100,epoch=1]
