@@ -1,0 +1,145 @@
+[2026-05-09 19:25:47] INFO     [olmoearth_pretrain.data.dataset:914, rank=0] OlmoEarthDataset kwargs: {'h5py_dir': PosixUPath('/mnt/ht2-nas2/00-model/00-jiangzf/coderepo/3996'), 'training_modalities': ['sentinel2_l2a', 'sentinel1', 'landsat', 'worldcover', 'srtm', 'openstreetmap_raster', 'wri_canopy_height_map', 'cdl', 'worldcereal'], 'dtype': <class 'numpy.float32'>, 'normalize': True, 'dataset_percentage': 1.0, 'seed': 0, 'apply_cutmix': False, 'cache_dir': None}
+[2026-05-09 19:25:47] INFO     [olmoearth_pretrain.data.dataset:503, rank=0] Preparing dataset...
+[2026-05-09 19:25:47] INFO     [olmoearth_pretrain.data.dataset:440, rank=0] Metadata CSV has 3996 samples
+[2026-05-09 19:25:47] INFO     [olmoearth_pretrain.data.dataset:441, rank=0] columns: Index(['sample_index', 'cdl', 'landsat', 'openstreetmap_raster', 'sentinel1',
+       'sentinel2_l2a', 'srtm', 'worldcereal', 'worldcover',
+       'wri_canopy_height_map'],
+      dtype='object')
+[2026-05-09 19:25:47] INFO     [olmoearth_pretrain.data.dataset:462, rank=0] Filtering out 0 samples without any training modalities
+[2026-05-09 19:25:47] INFO     [olmoearth_pretrain.data.dataset:468, rank=0] Filtered 0 samples to (3996,) samples
+[2026-05-09 19:25:47] INFO     [olmo_core.train.callbacks.config_saver:52, rank=0] Setting config for 'beaker' callback of type 'BeakerCallback'
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:672, rank=0] Callback order:
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 1: speed_monitor
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 2: checkpointer
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 3: wandb
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 4: config_saver
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 5: garbage_collector
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 6: console_logger
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 7: gpu_memory_monitor
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:674, rank=0]   - Callback 8: beaker
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:676, rank=0] Training for 2,100 steps
+[2026-05-09 19:25:47] WARNING  [olmoearth_pretrain.train.callbacks.speed_monitor:42, rank=0] Speed monitor callback bases token input based on token budget, encoder ratio, and decoder ratio
+[2026-05-09 19:25:47] INFO     [olmo_core.train.trainer:911, rank=0] Saving checkpoint for step 0 to 'local_output/checkpoints/anonymous/nano_dynamic_hypernet_official_9mod/step0' asynchronously...
+[2026-05-09 19:25:47] ERROR    [olmo_core.train.trainer:702, rank=0] Training failed due to:
+FileExistsError: local_output/checkpoints/anonymous/nano_dynamic_hypernet_official_9mod/step0
+[2026-05-09 19:25:47] CRITICAL [olmo_core.utils:380, rank=0] Uncaught FileExistsError: local_output/checkpoints/anonymous/nano_dynamic_hypernet_official_9mod/step0
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /mnt/ht2-nas2/00-model/00-zhoujw/olmoearth/olmoearth/scripts/official/nano_jzf_dynamic_emb.py:14 │
+│                                                                                                  │
+│   142 │   │   │   "--train_module.masking_config.strategy_config.only_decode_modalities=[worldco │
+│   143 │   │   ]                                                                                  │
+│   144 │                                                                                          │
+│ ❱ 145 │   main(                                                                                  │
+│   146 │   │   common_components_builder=build_common_components,                                 │
+│   147 │   │   model_config_builder=build_model_config,                                           │
+│   148 │   │   train_module_config_builder=build_train_module_config,                             │
+│                                                                                                  │
+│ /mnt/ht2-nas2/00-model/00-zhoujw/olmoearth/olmoearth/olmoearth_pretrain/internal/experiment.py:5 │
+│                                                                                                  │
+│   591 │   │   │   overrides=overrides,                                                           │
+│   592 │   │   )                                                                                  │
+│   593 │                                                                                          │
+│ ❱ 594 │   cmd.run(config)                                                                        │
+│   595                                                                                            │
+│                                                                                                  │
+│ /mnt/ht2-nas2/00-model/00-zhoujw/olmoearth/olmoearth/olmoearth_pretrain/internal/experiment.py:4 │
+│                                                                                                  │
+│   477 │   │   │   │   )                                                                          │
+│   478 │   │   │   │   config.train_module.dp_config = None                                       │
+│   479 │   │   │   try:                                                                           │
+│ ❱ 480 │   │   │   │   train(config)                                                              │
+│   481 │   │   │   finally:                                                                       │
+│   482 │   │   │   │   teardown_training_environment()                                            │
+│   483 │   │   elif self == SubCmd.prep:                                                          │
+│                                                                                                  │
+│ /mnt/ht2-nas2/00-model/00-zhoujw/olmoearth/olmoearth/olmoearth_pretrain/internal/experiment.py:3 │
+│                                                                                                  │
+│   312 │   config_dict = config.as_config_dict()                                                  │
+│   313 │   cast(WandBCallback, trainer.callbacks["wandb"]).config = config_dict                   │
+│   314 │   cast(ConfigSaverCallback, trainer.callbacks["config_saver"]).config = config_dict      │
+│ ❱ 315 │   trainer.fit()                                                                          │
+│   316                                                                                            │
+│   317                                                                                            │
+│   318 def evaluate(config: OlmoEarthEvaluateConfig) -> None:                                     │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/trainer │
+│                                                                                                  │
+│    681 │   │                                                                                     │
+│    682 │   │   try:                                                                              │
+│    683 │   │   │   for callback in self._iter_callbacks():                                       │
+│ ❱  684 │   │   │   │   callback.pre_train()                                                      │
+│    685 │   │   │   self.train_module.pre_train()                                                 │
+│    686 │   │   │                                                                                 │
+│    687 │   │   │   # Quick check if the run has already been canceled.                           │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/callbac │
+│                                                                                                  │
+│   205 │   │   │   self.pre_train_checkpoint                                                      │
+│   206 │   │   │   or (self.pre_train_checkpoint is None and not self.trainer.checkpoint_loaded)  │
+│   207 │   │   ):                                                                                 │
+│ ❱ 208 │   │   │   self._checkpoints.append(self._save_checkpoint())                              │
+│   209 │   │                                                                                      │
+│   210 │   │   # Collect existing ephemeral checkpoints from previous runs.                       │
+│   211 │   │   if self.remove != CheckpointRemovalStrategy.never:                                 │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/callbac │
+│                                                                                                  │
+│   144 │   │   save_async = save_async if save_async is not None else self.save_async             │
+│   145 │   │   self._await_last_checkpoint()                                                      │
+│   146 │   │   if save_async:                                                                     │
+│ ❱ 147 │   │   │   path, self._future = self.trainer.save_checkpoint_async()                      │
+│   148 │   │   else:                                                                              │
+│   149 │   │   │   path = self.trainer.save_checkpoint()                                          │
+│   150 │   │   self._latest_checkpoint_step = self.step                                           │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/trainer │
+│                                                                                                  │
+│    909 │   │   path = join_path(self.save_folder, dirname)                                       │
+│    910 │   │                                                                                     │
+│    911 │   │   log.info(f"Saving checkpoint for step {step} to '{path}' asynchronously...")      │
+│ ❱  912 │   │   fut = self.checkpointer.save_async(                                               │
+│    913 │   │   │   path, self.train_module, cast(Dict[str, Any], self.state_dict())              │
+│    914 │   │   )                                                                                 │
+│    915                                                                                           │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/checkpo │
+│                                                                                                  │
+│   129 │   │                                                                                      │
+│   130 │   │   dir = normalize_path(dir)                                                          │
+│   131 │   │                                                                                      │
+│ ❱ 132 │   │   with self._temporary_wd(dir) as wd:                                                │
+│   133 │   │   │   # Save trainer state.                                                          │
+│   134 │   │   │   self._save_train_state(dir, wd, train_state)                                   │
+│   135                                                                                            │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/contextlib.py:137 in __enter__        │
+│                                                                                                  │
+│   134 │   │   # they are only needed for recreation, which is not possible anymore               │
+│   135 │   │   del self.args, self.kwds, self.func                                                │
+│   136 │   │   try:                                                                               │
+│ ❱ 137 │   │   │   return next(self.gen)                                                          │
+│   138 │   │   except StopIteration:                                                              │
+│   139 │   │   │   raise RuntimeError("generator didn't yield") from None                         │
+│   140                                                                                            │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/checkpo │
+│                                                                                                  │
+│   419 │   def _temporary_wd(self, dir: PathOrStr) -> Generator[Path, None, None]:                │
+│   420 │   │   # No need to mkdir here since we'll directly replace the temporary directory with  │
+│   421 │   │   # this directory below.                                                            │
+│ ❱ 422 │   │   dir = self._prepare_dir(dir, ensure_exists=False)                                  │
+│   423 │   │                                                                                      │
+│   424 │   │   tmp_dir = self._get_tmp_dir(dir)                                                   │
+│   425                                                                                            │
+│                                                                                                  │
+│ /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/olmo_core/train/checkpo │
+│                                                                                                  │
+│   348 │   │   │   │   if get_fs_local_rank() == 0:                                               │
+│   349 │   │   │   │   │   clear_directory(dir)                                                   │
+│   350 │   │   │   else:                                                                          │
+│ ❱ 351 │   │   │   │   raise FileExistsError(dir)                                                 │
+│   352 │   │                                                                                      │
+│   353 │   │   if ensure_exists and not is_url(dir):                                              │
+│   354 │   │   │   if get_fs_local_rank() == 0:                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+FileExistsError: local_output/checkpoints/anonymous/nano_dynamic_hypernet_official_9mod/step0
