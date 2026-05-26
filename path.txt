@@ -1,0 +1,1 @@
+/mnt/ht2-nas2/00-model/00-hulj/Dinov3/workspace/data_eurosat_train/train/pseudo/img_000000.jpg
