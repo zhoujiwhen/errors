@@ -1,0 +1,71 @@
+I20260529 10:09:31 140999 dinov3 loaders.py:102] using dataset: "FlatJPG:split=VAL:/mnt/ht2_nas2/00-model/00-hulj/Dinov3/workspace/data_eurosat_train/train/pseudo/:seed=42:train_ratio=0.9"
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 720, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 716, in main
+[rank0]:     do_train(cfg, model, resume=not args.no_resume)
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 473, in do_train
+[rank0]:     val_loader = build_feature_val_data_loader_from_cfg(cfg, model) if feature_distill_enabled else None
+[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 395, in build_feature_val_data_loader_from_cfg
+[rank0]:     dataset = make_dataset(dataset_str=cfg_val.train.dataset_path, transform=model.build_data_augmentation_dino(cfg_val), target_transform=lambda _: ())
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/data/loaders.py", line 104, in make_dataset
+[rank0]:     class_, kwargs = _parse_dataset_str(dataset_str)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/data/loaders.py", line 53, in _parse_dataset_str
+[rank0]:     key, value = token.split("=")
+[rank0]:     ^^^^^^^^^^
+[rank0]: ValueError: not enough values to unpack (expected 2, got 1)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 720, in <module>
+[rank1]:     main()
+[rank1]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 716, in main
+[rank1]:     do_train(cfg, model, resume=not args.no_resume)
+[rank1]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 473, in do_train
+[rank1]:     val_loader = build_feature_val_data_loader_from_cfg(cfg, model) if feature_distill_enabled else None
+[rank1]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/train/train.py", line 395, in build_feature_val_data_loader_from_cfg
+[rank1]:     dataset = make_dataset(dataset_str=cfg_val.train.dataset_path, transform=model.build_data_augmentation_dino(cfg_val), target_transform=lambda _: ())
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/data/loaders.py", line 104, in make_dataset
+[rank1]:     class_, kwargs = _parse_dataset_str(dataset_str)
+[rank1]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-with_gram/dinov3/data/loaders.py", line 53, in _parse_dataset_str
+[rank1]:     key, value = token.split("=")
+[rank1]:     ^^^^^^^^^^
+[rank1]: ValueError: not enough values to unpack (expected 2, got 1)
+W0529 10:09:32.895000 140874 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 141000 closing signal SIGTERM
+E0529 10:09:34.261000 140874 site-packages/torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 0 (pid: 140999) of binary: /home/users_model/miniconda3/envs/olmoearth/bin/python3.12
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+dinov3/train/train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-05-29_10:09:32
+  host      : iZ1pp00ofwvuxcw0wxchchZ
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 140999)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
