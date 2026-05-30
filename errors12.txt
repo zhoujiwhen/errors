@@ -1,0 +1,366 @@
+(olmoearth) users_model@iZ1pp00ofwvuxcw0wxchchZ:/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram$ bash scripts/run_swin_base_ssl_feature_distill.sh 
+[ssl-feature-distill] workspace: /mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram
+[ssl-feature-distill] CUDA_VISIBLE_DEVICES=4,5
+CUDA devices: 2 | current: NVIDIA A40
+W0530 10:05:03.692000 1678064 site-packages/torch/distributed/run.py:766] 
+W0530 10:05:03.692000 1678064 site-packages/torch/distributed/run.py:766] *****************************************
+W0530 10:05:03.692000 1678064 site-packages/torch/distributed/run.py:766] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0530 10:05:03.692000 1678064 site-packages/torch/distributed/run.py:766] *****************************************
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+I20260530 10:05:08 1678165 dinov3 torch_distributed_wrapper.py:255] PyTorch distributed environment: TorchElastic job (18c464ca-9ab2-4cb9-966f-ee13225fbda9) using iZ1pp00ofwvuxcw0wxchchZ:35629 (rank=0, world size=2)
+W20260530 10:05:10 1678165 py.warnings warnings.py:112] /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4631: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+
+[rank1]:[W530 10:05:12.321919227 ProcessGroupNCCL.cpp:4718] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can pecify device_id in init_process_group() to force use of a particular device.
+[rank0]:[W530 10:05:13.602126693 ProcessGroupNCCL.cpp:4718] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can pecify device_id in init_process_group() to force use of a particular device.
+I20260530 10:05:16 1678165 dinov3 config.py:209] git:
+  sha: 6e985c17b480bdb935db28c83817faad2d65a652, status: has uncommited changes, branch: main
+
+I20260530 10:05:16 1678165 dinov3 config.py:213] conda env name: olmoearth
+I20260530 10:05:16 1678165 dinov3 config.py:214] conda env path: /home/users_model/miniconda3/envs/olmoearth
+I20260530 10:05:16 1678165 dinov3 config.py:215] python path: ['/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram', '/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram', '/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram', '/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train', '/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram', '/home/users_model/miniconda3/envs/olmoearth/lib/python312.zip', '/home/users_model/miniconda3/envs/olmoearth/lib/python3.12', '/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/lib-dynload', '/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages', '__editable__.olmoearth_pretrain-0.1.0.finder.__path_hook__', '/tmp/tmp2fxxun9t']
+I20260530 10:05:16 1678165 dinov3 config.py:100] benchmark_codebase: False
+config_file: dinov3/configs/train/swin_base_feature_distill_vitl16.yaml
+dump_fsdp_weights: False
+eval: 
+eval_only: False
+eval_pretrained_weights: 
+multi_distillation: False
+no_resume: False
+opts: []
+output_dir: outputs/swin_base_vitl16_ssl_feature_distill
+profiling: False
+record_ref_losses: False
+ref_losses_path: 
+seed: 0
+test_ibot: False
+I20260530 10:05:16 1678165 dinov3 config.py:58] MODEL:
+  META_ARCHITECTURE: SSLFeatureDistillationMetaArch
+  DEVICE: cuda
+  WEIGHTS: ''
+  DTYPE: float32
+compute_precision:
+  param_dtype: bf16
+  reduce_dtype: fp32
+  sharding_strategy: SHARD_GRAD_OP
+dino:
+  loss_weight: 1.0
+  global_ignore_diagonal: true
+  head_n_prototypes: 65536
+  head_bottleneck_dim: 256
+  head_norm_last_layer: false
+  head_nlayers: 3
+  head_hidden_dim: 2048
+  koleo_loss_weight: 0.1
+  koleo_loss_distributed: false
+  koleo_topk: 1
+  koleo_distributed_replicas: 0
+  koleo_distributed_loss_group_size: null
+  koleo_distributed_loss_group_data: true
+  force_weight_norm: false
+  reweight_dino_local_loss: false
+  local_loss_weight_schedule:
+    start: 0.5
+    peak: 0.5
+    end: 0.5
+    warmup_epochs: 0
+ibot:
+  loss_weight: 1.0
+  mask_sample_probability: 0.5
+  mask_ratio_min_max:
+  - 0.1
+  - 0.5
+  mask_random_circular_shift: false
+  force_masking_even_with_zero_weight: false
+  separate_head: true
+  head_n_prototypes: 65536
+  head_bottleneck_dim: 256
+  head_norm_last_layer: false
+  head_nlayers: 3
+  head_hidden_dim: 2048
+gram:
+  use_loss: true
+  compute_stats: false
+  loss_weight: 1.0
+  ema_teacher: false
+  ckpt: null
+  it_load_ema_teacher: -1
+  rep_update: true
+  update_frequency: 50000
+  it_first_update: 0
+  max_updates: null
+  normalized: true
+  img_level: true
+  remove_neg: false
+  remove_only_teacher_neg: false
+  tokens_used: all
+  global_teacher_resize_method: bicubic
+  global_teacher_resize_antialias: false
+  loss_weight_schedule: null
+train:
+  batch_size_per_gpu: 64
+  dataset_path: FlatJPG:split=TRAIN:root=/mnt/qh2-nas3/EO_Pretrian_Data_global/Million-AID/extracted/train/train/:seed=42:train_ratio=1.0
+  data_config: null
+  output_dir: /mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/outputs/swin_base_vitl16_ssl_feature_distill
+  saveckp_freq: 20
+  seed: 42
+  num_workers: 4
+  OFFICIAL_EPOCH_LENGTH: 7741
+  monitor_gradient_norm: false
+  chunk_schedule: []
+  use_teacher_head: true
+  learn_from_teacher_tokens: false
+  centering: sinkhorn_knopp
+  checkpointing: true
+  checkpointing_full: false
+  compile: false
+  cudagraphs: false
+  sharded_eval_checkpoint: false
+  cache_dataset: false
+student:
+  arch: swin_base
+  patch_size: 4
+  drop_path_rate: 0.2
+  layerscale: 1.0e-05
+  pretrained_weights: ''
+  ffn_layer: mlp
+  ffn_ratio: 4.0
+  resume_from_teacher_chkpt: ''
+  qkv_bias: true
+  proj_bias: true
+  ffn_bias: true
+  norm_layer: layernorm
+  n_storage_tokens: 0
+  mask_k_bias: false
+  untie_cls_and_patch_norms: true
+  untie_global_and_local_cls_norm: false
+  in_chans: 3
+  pos_embed_type: rope
+  pos_embed_rope_base: 100.0
+  pos_embed_rope_min_period: null
+  pos_embed_rope_max_period: null
+  pos_embed_rope_normalize_coords: separate
+  pos_embed_rope_shift_coords: null
+  pos_embed_rope_jitter_coords: null
+  pos_embed_rope_rescale_coords: null
+  pos_embed_rope_dtype: bf16
+  fp8_enabled: false
+  fp8_filter: blocks
+teacher:
+  momentum_teacher: 0.996
+  final_momentum_teacher: 1.0
+  warmup_teacher_temp: 0.04
+  teacher_temp: 0.07
+  warmup_teacher_temp_epochs: 10
+  in_chans: 3
+distillation:
+  enabled: false
+  full_cfg_path: ''
+  checkpoint_path: ''
+multidistillation:
+  enabled: false
+hrft:
+  enabled: false
+  checkpoint_path: ''
+optim:
+  epochs: 3000
+  optimizer: adamw
+  weight_decay: 0.05
+  weight_decay_end: 0.2
+  lr: 5.0e-05
+  warmup_epochs: 10
+  min_lr: 1.0e-06
+  schedule_trunc_extra: 0.0
+  clip_grad: 3.0
+  freeze_last_layer_epochs: 0
+  scaling_rule: sqrt_wrt_1024
+  patch_embed_lr_mult: 0.2
+  dino_head_wd_multiplier: 1.0
+  layerwise_decay: 0.9
+  multi_tensor_optim: true
+  dump_fsdp_weights_path: ''
+  adamw_beta1: 0.9
+  adamw_beta2: 0.999
+crops:
+  global_crops_scale:
+  - 0.32
+  - 1.0
+  local_crops_number: 8
+  local_crops_scale:
+  - 0.05
+  - 0.32
+  global_crops_size: 224
+  local_crops_size: 96
+  global_local_crop_pairs_ratios: 1.0
+  gram_teacher_crops_size: null
+  localcrops_subset_of_globalcrops: false
+  share_color_jitter: false
+  horizontal_flips: true
+  gram_teacher_no_distortions: false
+  rgb_mean:
+  - 0.485
+  - 0.456
+  - 0.406
+  rgb_std:
+  - 0.229
+  - 0.224
+  - 0.225
+  teacher_to_student_resolution_scale: 1.0
+evaluation:
+  eval_period_iterations: 0
+  low_freq_every: 5
+  config_files:
+    high_freq: benchmark_high_frequency.yaml
+    low_freq: benchmark_low_frequency.yaml
+checkpointing:
+  period: 7741
+  max_to_keep: 5
+  keep_every: 22500
+feature_distill:
+  teacher_arch: vit_7b
+  teacher_patch_size: 16
+  teacher_checkpoint: /mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/checkpoints/dinov3_vit7b16_pretrain_lvd1689m-a955f4ea.pth
+  val_dataset_path: FlatJPG:split=VAL:root=/mnt/qh2-nas3/EO_Pretrian_Data_global/Million-AID/extracted/test/test/:seed=42:train_ratio=0.0
+  val_period_iterations: 7741
+  val_max_batches: 128
+  early_stopping_patience: 200000
+
+I20260530 10:05:16 1678165 dinov3 config.py:53] sqrt scaling learning rate; old: 5e-05, new: 7.071067811865475e-05
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/logging/__init__.py", line 1160, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/logging/__init__.py", line 999, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/logging/__init__.py", line 706, in format
+    s = self.formatMessage(record)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/logging/__init__.py", line 39, in formatMessage
+    index = log.rfind(msg, len(log) - len(msg))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: must be str, not DictConfig
+Call stack:
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 720, in <module>
+    main()
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 675, in main
+    logger.info(cfg)
+Message: {'MODEL': {'META_ARCHITECTURE': 'SSLFeatureDistillationMetaArch', 'DEVICE': 'cuda', 'WEIGHTS': '', 'DTYPE': 'float32'}, 'compute_precision': {'param_dtype': 'bf16', 'reduce_dtype': 'fp32', 'sharding_strategy': 'SHARD_GRAD_OP'}, 'dino': {'loss_weight': 1.0, 'global_ignore_diagonal': True, 'head_n_prototypes': 65536, 'head_bottleneck_dim': 256, 'head_norm_last_layer': False, 'head_nlayers': 3, 'head_hidden_dim': 2048, 'koleo_loss_weight': 0.1, 'koleo_loss_distributed': False, 'koleo_topk': 1, 'koleo_distributed_replicas': 0, 'koleo_distributed_loss_group_size': None, 'koleo_distributed_loss_group_data': True, 'force_weight_norm': False, 'reweight_dino_local_loss': False, 'local_loss_weight_schedule': {'start': 0.5, 'peak': 0.5, 'end': 0.5, 'warmup_epochs': 0}}, 'ibot': {'loss_weight': 1.0, 'mask_sample_probability': 0.5, 'mask_ratio_min_max': [0.1, 0.5], 'mask_random_circular_shift': False, 'force_masking_even_with_zero_weight': False, 'separate_head': True, 'head_n_prototypes': 65536, 'head_bottleneck_dim': 256, 'head_norm_last_layer': False, 'head_nlayers': 3, 'head_hidden_dim': 2048}, 'gram': {'use_loss': True, 'compute_stats': False, 'loss_weight': 1.0, 'ema_teacher': False, 'ckpt': None, 'it_load_ema_teacher': -1, 'rep_update': True, 'update_frequency': 50000, 'it_first_update': 0, 'max_updates': None, 'normalized': True, 'img_level': True, 'remove_neg': False, 'remove_only_teacher_neg': False, 'tokens_used': 'all', 'global_teacher_resize_method': 'bicubic', 'global_teacher_resize_antialias': False, 'loss_weight_schedule': None}, 'train': {'batch_size_per_gpu': 64, 'dataset_path': 'FlatJPG:split=TRAIN:root=/mnt/qh2-nas3/EO_Pretrian_Data_global/Million-AID/extracted/train/train/:seed=42:train_ratio=1.0', 'data_config': None, 'output_dir': '/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/outputs/swin_base_vitl16_ssl_feature_distill', 'saveckp_freq': 20, 'seed': 42, 'num_workers': 4, 'OFFICIAL_EPOCH_LENGTH': 7741, 'monitor_gradient_norm': False, 'chunk_schedule': [], 'use_teacher_head': True, 'learn_from_teacher_tokens': False, 'centering': 'sinkhorn_knopp', 'checkpointing': True, 'checkpointing_full': False, 'compile': False, 'cudagraphs': False, 'sharded_eval_checkpoint': False, 'cache_dataset': False}, 'student': {'arch': 'swin_base', 'patch_size': 4, 'drop_path_rate': 0.2, 'layerscale': 1e-05, 'pretrained_weights': '', 'ffn_layer': 'mlp', 'ffn_ratio': 4.0, 'resume_from_teacher_chkpt': '', 'qkv_bias': True, 'proj_bias': True, 'ffn_bias': True, 'norm_layer': 'layernorm', 'n_storage_tokens': 0, 'mask_k_bias': False, 'untie_cls_and_patch_norms': True, 'untie_global_and_local_cls_norm': False, 'in_chans': 3, 'pos_embed_type': 'rope', 'pos_embed_rope_base': 100.0, 'pos_embed_rope_min_period': None, 'pos_embed_rope_max_period': None, 'pos_embed_rope_normalize_coords': 'separate', 'pos_embed_rope_shift_coords': None, 'pos_embed_rope_jitter_coords': None, 'pos_embed_rope_rescale_coords': None, 'pos_embed_rope_dtype': 'bf16', 'fp8_enabled': False, 'fp8_filter': 'blocks'}, 'teacher': {'momentum_teacher': 0.996, 'final_momentum_teacher': 1.0, 'warmup_teacher_temp': 0.04, 'teacher_temp': 0.07, 'warmup_teacher_temp_epochs': 10, 'in_chans': 3}, 'distillation': {'enabled': False, 'full_cfg_path': '', 'checkpoint_path': ''}, 'multidistillation': {'enabled': False}, 'hrft': {'enabled': False, 'checkpoint_path': ''}, 'optim': {'epochs': 3000, 'optimizer': 'adamw', 'weight_decay': 0.05, 'weight_decay_end': 0.2, 'lr': 7.071067811865475e-05, 'warmup_epochs': 10, 'min_lr': 1e-06, 'schedule_trunc_extra': 0.0, 'clip_grad': 3.0, 'freeze_last_layer_epochs': 0, 'scaling_rule': 'sqrt_wrt_1024', 'patch_embed_lr_mult': 0.2, 'dino_head_wd_multiplier': 1.0, 'layerwise_decay': 0.9, 'multi_tensor_optim': True, 'dump_fsdp_weights_path': '', 'adamw_beta1': 0.9, 'adamw_beta2': 0.999}, 'crops': {'global_crops_scale': [0.32, 1.0], 'local_crops_number': 8, 'local_crops_scale': [0.05, 0.32], 'global_crops_size': 224, 'local_crops_size': 96, 'global_local_crop_pairs_ratios': 1.0, 'gram_teacher_crops_size': None, 'localcrops_subset_of_globalcrops': False, 'share_color_jitter': False, 'horizontal_flips': True, 'gram_teacher_no_distortions': False, 'rgb_mean': [0.485, 0.456, 0.406], 'rgb_std': [0.229, 0.224, 0.225], 'teacher_to_student_resolution_scale': 1.0}, 'evaluation': {'eval_period_iterations': 0, 'low_freq_every': 5, 'config_files': {'high_freq': 'benchmark_high_frequency.yaml', 'low_freq': 'benchmark_low_frequency.yaml'}}, 'checkpointing': {'period': 7741, 'max_to_keep': 5, 'keep_every': 22500}, 'feature_distill': {'teacher_arch': 'vit_7b', 'teacher_patch_size': 16, 'teacher_checkpoint': '/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/checkpoints/dinov3_vit7b16_pretrain_lvd1689m-a955f4ea.pth', 'val_dataset_path': 'FlatJPG:split=VAL:root=/mnt/qh2-nas3/EO_Pretrian_Data_global/Million-AID/extracted/test/test/:seed=42:train_ratio=0.0', 'val_period_iterations': 7741, 'val_max_batches': 128, 'early_stopping_patience': 200000}}
+Arguments: ()
+D20260530 10:05:16 1678165 nan_logger __init__.py:132] PyTorch distributed environment: TorchElastic job (18c464ca-9ab2-4cb9-966f-ee13225fbda9) using iZ1pp00ofwvuxcw0wxchchZ:35629 (rank=0, world size=2)
+I20260530 10:05:16 1678165 dinov3 train.py:687] Making meta arch SSLFeatureDistillationMetaArch
+W20260530 10:05:16 1678165 py.warnings warnings.py:112] /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+I20260530 10:05:16 1678165 dinov3 __init__.py:25] fp8 matmuls: OFF (disabled in config)
+I20260530 10:05:16 1678165 dinov3 __init__.py:25] fp8 matmuls: OFF (disabled in config)
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:116] using base=100.0 for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:117] using min_period=None for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:118] using max_period=None for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:119] using normalize_coords=separate for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:120] using shift_coords=None for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:121] using rescale_coords=2 for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:122] using jitter_coords=None for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:123] using dtype=bf16 for rope new
+I20260530 10:05:16 1678165 dinov3 vision_transformer.py:137] using swiglu64 layer as FFN
+I20260530 10:05:16 1678165 dinov3 __init__.py:25] fp8 matmuls: OFF (disabled in config)
+I20260530 10:05:16 1678165 dinov3 ac_compile_parallelize.py:168] DISTRIBUTED FSDP -- preparing model for distributed training
+I20260530 10:05:16 1678165 dinov3 ac_compile_parallelize.py:46] using selective checkpointing on backbone with selective policy
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 720, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 690, in main
+[rank0]:     model.prepare_for_distributed_training()
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/ssl_feature_distill_meta_arch.py", line 70, in prepare_for_distributed_training
+[rank0]:     ac_compile_parallelize(
+[rank0]:   File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/fsdp/ac_compile_parallelize.py", line 242, in ac_compile_parallelize
+[rank0]:     model.to_empty(device="cuda")
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1207, in to_empty
+[rank0]:     return self._apply(
+[rank0]:            ^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fully_shard.py", line 513, in _apply
+[rank0]:     ret = super()._apply(*args, **kwargs)  # type: ignore[misc]
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fully_shard.py", line 513, in _apply
+[rank0]:     ret = super()._apply(*args, **kwargs)  # type: ignore[misc]
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+[rank0]:     module._apply(fn)
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+[rank0]:     param_applied = fn(param)
+[rank0]:                     ^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1208, in <lambda>
+[rank0]:     lambda t: torch.empty_like(t, device=device), recurse=recurse
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/_compile.py", line 51, in inner
+[rank0]:     return disable_fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 838, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/tensor/_api.py", line 344, in __torch_dispatch__
+[rank0]:     return DTensor._op_dispatcher.dispatch(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/tensor/_dispatch.py", line 217, in dispatch
+[rank0]:     local_results = op_call(*local_tensor_args, **op_info.local_kwargs)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/_ops.py", line 756, in __call__
+[rank0]:     return self._op(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/_prims_common/wrappers.py", line 308, in _fn
+[rank0]:     result = fn(*args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/_refs/__init__.py", line 4999, in empty_like
+[rank0]:     return torch.empty_permuted(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 44.45 GiB of which 2.56 MiB is free. Process 269374 has 40.76 GiB memory in use. Including non-PyTorch memory, this process has 3.67 GiB memory in use. Of the allocated memory 3.26 GiB is allocated by PyTorch, and 5.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+W0530 10:05:20.456000 1678064 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1678166 closing signal SIGTERM
+E0530 10:05:22.223000 1678064 site-packages/torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 0 (pid: 1678165) of binary: /home/users_model/miniconda3/envs/olmoearth/bin/python3.12
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+dinov3/train/train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-05-30_10:05:20
+  host      : iZ1pp00ofwvuxcw0wxchchZ
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1678165)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
