@@ -1,0 +1,96 @@
+(olmoearth) users_model@iZ1pp00ofwvuxcw0wxchchZ:/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram$ bash scripts/run_swin_base_ssl_feature_distill.sh 
+[ssl-feature-distill] workspace: /mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram
+[ssl-feature-distill] CUDA_VISIBLE_DEVICES=6,7
+CUDA devices: 2 | current: NVIDIA A40
+W0530 09:56:06.822000 1663720 site-packages/torch/distributed/run.py:766] 
+W0530 09:56:06.822000 1663720 site-packages/torch/distributed/run.py:766] *****************************************
+W0530 09:56:06.822000 1663720 site-packages/torch/distributed/run.py:766] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0530 09:56:06.822000 1663720 site-packages/torch/distributed/run.py:766] *****************************************
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+I20260530 09:56:12 1663849 dinov3 torch_distributed_wrapper.py:255] PyTorch distributed environment: TorchElastic job (57e47924-b728-4791-b924-84ab5aeb1fe2) using iZ1pp00ofwvuxcw0wxchchZ:35823 (rank=0, world size=4)
+Traceback (most recent call last):
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 720, in <module>
+    main()
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 673, in main
+    setup_job(output_dir=args.output_dir, seed=args.seed)
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/configs/config.py", line 197, in setup_job
+    distributed.enable(
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/distributed/torch_distributed_wrapper.py", line 262, in enable_distributed
+    torch.cuda.set_device(torch_env.local_rank)
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/cuda/__init__.py", line 529, in set_device
+    torch._C._cuda_setDevice(device)
+RuntimeError: CUDA error: invalid device ordinal
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 720, in <module>
+    main()
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/train/train.py", line 673, in main
+    setup_job(output_dir=args.output_dir, seed=args.seed)
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/configs/config.py", line 197, in setup_job
+    distributed.enable(
+  File "/mnt/ht2_nas2/00-model/00-zhoujw/dinov3-swin-distill-7B-with-gram/dinov3/distributed/torch_distributed_wrapper.py", line 262, in enable_distributed
+    torch.cuda.set_device(torch_env.local_rank)
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/cuda/__init__.py", line 529, in set_device
+    torch._C._cuda_setDevice(device)
+RuntimeError: CUDA error: invalid device ordinal
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+W20260530 09:56:17 1663849 py.warnings warnings.py:112] /home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:4631: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+
+W0530 09:56:18.778000 1663720 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1663849 closing signal SIGTERM
+W0530 09:56:18.779000 1663720 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1663850 closing signal SIGTERM
+W0530 09:56:18.779000 1663720 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1663851 closing signal SIGTERM
+E0530 09:56:18.994000 1663720 site-packages/torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 3 (pid: 1663852) of binary: /home/users_model/miniconda3/envs/olmoearth/bin/python3.12
+Traceback (most recent call last):
+  File "/home/users_model/miniconda3/envs/olmoearth/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users_model/miniconda3/envs/olmoearth/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+dinov3/train/train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-05-30_09:56:18
+  host      : iZ1pp00ofwvuxcw0wxchchZ
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 1663852)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
